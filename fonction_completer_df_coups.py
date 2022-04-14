@@ -19,26 +19,16 @@ def completer_df_coups(df_coups, coup):
     df_coups = completer_df_coups(df_coups, coup)
     """
 
-    if len(df_coups) ==  0:
-        #C'est à dire si c'est le 1er coups et que notre dataframe est vide.
-        d = pd.DataFrame(df_coups)   #je passe toujours par des copies MOI
-        ### Je vais passer par des array afin de pouvoir prélever les valeurs, car les colonnes de coup sont des séries d'un 
-           # d'un seul élément
-        ligne = coup['lig'].values
-        colonne = coup['col'].values
-        case = coup['cases'].values
 
-        d.iloc[0] = [ligne[0], colonne[0], case[0], 1]   #on complète avec les coordonnées du coup, + le numéro qui est le 1er coup
+    d = pd.DataFrame(df_coups)
+    ### Je vais passer par des array afin de pouvoir prélever les valeurs, car les colonnes de coup sont des séries d'un 
+       # d'un seul élément
+    ligne = coup['lig'].values
+    colonne = coup['col'].values
+    case = coup['cases'].values
+    num = len(df_coups) 
 
-    else: #donc ce n'est pas le premier coup
-
-        d = pd.DataFrame(df_coups)
-        ligne = coup['lig'].values
-        colonne = coup['col'].values
-        case = coup['cases'].values
-        num = len(df_coups) 
-
-        d.iloc[num] = [ligne[0], colonne[0], case[0], num + 1]
+    d.iloc[num] = [ligne[0], colonne[0], case[0], num + 1]
 
     return d
 
