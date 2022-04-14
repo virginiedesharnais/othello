@@ -2,18 +2,18 @@ import pandas as pd
 import numpy as np
 import os      #va permettre de clear l'image à chaque fois qu'on fait l'affichage graphique plutôt que les cumuler
 
-def couleur(col):
+def couleur(coul):
     """
-    Si tu me dis que tu es "blanc", je te renvoie " B "
-    Si tu me dis que tu es "noir",  je te renvoie " N "
-                                      Sinon tu es " - "
+    Si tu me dis que tu es "blanc", je te renvoie " B  |"
+    Si tu me dis que tu es "noir",  je te renvoie " N  |"
+                                      Sinon tu es " -  |"
     """
-    if col == "noir":
-        return " N "
-    elif col == "blanc":
-        return " B "
+    if coul == "noir":
+        return " N  |"
+    elif coul == "blanc":
+        return " B  |"
     else:
-        return " - "
+        return " -  |"
 
 
 def affichage_graphique(df_echiquier):
@@ -32,15 +32,15 @@ def affichage_graphique(df_echiquier):
 
     os.system('clear')  #nettoie l'écran précédent
 
-    l0 = ["   ", " a "," b "," c "," d "," e "," f "," g "," h "]
-    l1 = [" 1 "]
-    l2 = [" 2 "]
-    l3 = [" 3 "]
-    l4 = [" 4 "]
-    l5 = [" 5 "]
-    l6 = [" 6 "]
-    l7 = [" 7 "]
-    l8 = [" 8 "]
+    l0 = ["    |", " a  |"," b  |"," c  |"," d  |"," e  |"," f  |"," g  |"," h  |"]
+    l1 = [" 1  |"]
+    l2 = [" 2  |"]
+    l3 = [" 3  |"]
+    l4 = [" 4  |"]
+    l5 = [" 5  |"]
+    l6 = [" 6  |"]
+    l7 = [" 7  |"]
+    l8 = [" 8  |"]
     for c in range(8):
         #on va passer parles iloc de notre data frame pour ne pas galérer avec des querry. 
         #on prend les valeurs de la bonne igne, et la n°2 est bien celle de la colonne des cases, et on applique la fonction couleur
@@ -53,19 +53,26 @@ def affichage_graphique(df_echiquier):
         l7.append(couleur(df_echiquier.iloc[ 8 * 6 + c].values[2]))
         l8.append(couleur(df_echiquier.iloc[ 8 * 7 + c].values[2]))
 
-
-
+    L0 = "".join(l0)
+    L1 = "".join(l1)
+    L2 = "".join(l2)
+    L3 = "".join(l3)
+    L4 = "".join(l4)
+    L5 = "".join(l5)
+    L6 = "".join(l6)
+    L7 = "".join(l7)
+    L8 = "".join(l8)
 
     
-    print(l0)
-    print(l1)
-    print(l2)
-    print(l3)
-    print(l4)
-    print(l5)
-    print(l6)
-    print(l7)
-    print(l8)
+    print(L0+"\n---------------------------------------------")
+    print(L1+"\n---------------------------------------------")
+    print(L2+"\n---------------------------------------------")
+    print(L3+"\n---------------------------------------------")
+    print(L4+"\n---------------------------------------------")
+    print(L5+"\n---------------------------------------------")
+    print(L6+"\n---------------------------------------------")
+    print(L7+"\n---------------------------------------------")
+    print(L8+"\n---------------------------------------------")
 
 
 
