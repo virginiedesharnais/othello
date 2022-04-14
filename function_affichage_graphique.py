@@ -4,16 +4,16 @@ import os      #va permettre de clear l'image à chaque fois qu'on fait l'affich
 
 def couleur(coul):
     """
-    Si tu me dis que tu es "blanc", je te renvoie " B  |"
-    Si tu me dis que tu es "noir",  je te renvoie " N  |"
-                                      Sinon tu es " -  |"
+    Si tu me dis que tu es "blanc", je te renvoie "  B  |"
+    Si tu me dis que tu es "noir",  je te renvoie "  N  |"
+                                      Sinon tu es "  -  |"
     """
     if coul == "noir":
-        return " N  |"
+        return "  N  |"
     elif coul == "blanc":
-        return " B  |"
+        return "  B  |"
     else:
-        return " -  |"
+        return "  -  |"
 
 
 def affichage_graphique(df_echiquier):
@@ -32,7 +32,7 @@ def affichage_graphique(df_echiquier):
 
     os.system('clear')  #nettoie l'écran précédent
 
-    l0 = ["    |", " a  |"," b  |"," c  |"," d  |"," e  |"," f  |"," g  |"," h  |"]
+    l0 = ["    |", "  a  |","  b  |","  c  |","  d  |","  e  |","  f  |","  g  |","  h  |"]
     l1 = [" 1  |"]
     l2 = [" 2  |"]
     l3 = [" 3  |"]
