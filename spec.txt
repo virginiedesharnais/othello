@@ -1,0 +1,117 @@
+### Règles de l'othello : https://www.regledujeu.fr/othello/
+
+##Nomenclatures :
+# Echequier : Il faut un echequier 8 x 8, avec la position verticale, horizontale, et un emplacement disant si c'est vide, noir ou blanc.
+ # le mieux est vraissemblablement un dictionnaire, avec vertciale, horizontale et emplacement.
+  # l'échiqiuer comment avec les 4 cases du milieu prises en noir sur la diagonale bas gauche haut droit, blanc sur l'autre. Noir commence.
+
+#Il nous faut la liste de tous les coups. Comme on ne peux pas faire pair / impair pour séparer les joueurs, il faut ajouter une annotation pour la 
+ # couleur joué à chaque coup. Donc une liste avec de ssous listes, ou une liste dictionnaire avec  n°coup et couleur joué.
+
+#poser le pion en suivant les consigne; soit :
+  # a) faire un système qui répond OK lorsqu'on rentre une coordonnée valide.
+  # b) proposer nous mêmes les différentes actrions disponibles.
+
+  #les consignes étant : 1. Le pion doit être posé sur une case vide. 
+                     #   2. La case doit être adjacente à un pion adverse (pose possible dans 4 directions donc.
+                     #                 Voire 3 puisque le pion qu’on encadre est déjà collé à au moins au autre pion). 
+                      #  3. Retourner obligatoirement un pion en prenant en Sandwich : Le pion posé doit encadrer un 
+                      #          (ou plusieurs) pions adverses entre le pion qu’il pose et un pion de sa couleur, déjà placé sur l’othellier.
+
+# passer son tour ne se fait pas volontairement. On est obliger d ejouer si possible.
+
+#Faire une représentation visuelle du plateau à chaque tour? avec plot, effaçant les traits et en remettant ?
+ #ou alors en print 9 lignes 9 colonnes (8 de l'echiquier et numérotage)
+
+#Prise en sandwitch : In joueur pose lorsque c'est possible à son tour, dans ce cas ils retournent ceux prient en sandwitch dans les 8 directions dont les
+ #diagonales. Il n'y a pas de réaction en chaînes.
+
+### Il faut faire une fonction tour; qui modélise un tour.
+
+
+
+#Fin de partie : 1) Plus de place
+                # 2) Une seule couleur
+                 # 3) Aucun coup jouable (car doit prendre en sandwitch)
+
+
+
+###Découpage :
+
+# début de partie : flag "passe ton tour" = false
+
+
+# un tour :  * doit prendre en valeur : le dictionnaire des pions,
+#                                       la liste des coups,
+                                        Qui joue à ce tour? (Blanc ou Noir)
+                                        flag
+                                        
+                                        
+                                        
+                                        
+ Pendant le tour du joueur : demander au joueur où jouer ou bien choisir "passe mon tour"
+ Si le joueur demande à passer son tour : vérification de l'impossibilité de jouer et si possibilité, afficher au moins 1 possibilité
+ Si impossibilité :
+       * on vérifie un flag pour savoir si le précédent joueur a aussi passé => dans ce cas, Fin du jeu
+       * on met le flag à True si 1er passe ton tour
+ Si le joueur donne ses coordonnées : 
+       * vérification du coup
+       * flag "passe ton tour" = false
+       * mise à jour de l'échiquier : 
+              - compte le nb de cases vides
+              - si plus de case vide : Fin du jeu
+       * enregistrement du coup joué dans la liste des coups
+
+        
+
+        #    * doit faire / renvoyer : le dictionnaire des pions chnagés
+        #                              la liste des coups complété
+        #                              passer le tour si le joueur ne pouvait pas faire de coup
+        #                              annoncer la fin de partie si aucun coup n'est possible pour les deux joueurs (le joueur précédent n'a pas pu agir et le suivant non plus).
+                                       flag
+
+* Fin du jeu : 
+        * compte les poins par couleur
+        * annoncer le gagnant
+        * afficher le récap des coups joués
+
+
+* représentation graphique de l'échiquier (reprise dans la fonction "tour", et fin de partie ?)
+### LISTE DES FONCTIONS et SOUS - FONCTION :
+
+TOUR :
+      * vérification coup (valide ou pas)
+      * passer le tour (trouver un coup possible)
+      * graphique
+      * compléter la liste des coups
+      * compléter le dictionnaire après un coup joué
+
+
+DEBUT : script ou fonction ?
+Fin : fonction 
+
+
+###Début de partie, on créé un dictionnaire avec 64 places.
+
+
+
+
+NOMENCLATURES :
+Dataframe {
+    en colonne => "col":1-8 int ; "lig":1-8 int ; "case": "blanc"/"noir"/"dispo"
+    en ligne => int 1 - 64
+} 
+Liste des coups : Dataframe {
+    index = n° coup joué
+    colonne => cf dataframe ci-dessus
+}
+où on ajoute l'élément joué et où on rajoute "numero":1-64 int
+
+flag est un booléen
+
+
+QUI fait quoi (Jeudi 9h40) :
+ Seb initialisation (script python qui sera celui executé pour joué au jeu)
+ Virginie 
+
+
