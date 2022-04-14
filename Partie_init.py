@@ -1,8 +1,11 @@
+import pandas as pd
+
 
 #On initialise le début de partie.
 passe = False    #flag passe ton tour. 
 
-import pandas as pd
+
+
 index = range(64) #ce sera l'index de notre DataFrame
 ligne = list()
 colonne = list()
@@ -25,9 +28,9 @@ dico = { "lig":ligne, "col":colonne, "cases":cases}
 echiquier = pd.DataFrame(dico)
 # print(echiquier.head(40))
 
-liste_coups = pd.DataFrame( columns = echiquier.columns)
-liste_coups['numero']=[]
-# print(liste_coups)
+df_coups = pd.DataFrame( columns = echiquier.columns)
+df_coups['numero']=[]
+# print(df_coups)
 
 
 
