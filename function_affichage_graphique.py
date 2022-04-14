@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os      #va permettre de clear l'image à chaque fois qu'on fait l'affichage graphique plutôt que les cumuler
 
 def couleur(col):
     """
@@ -29,7 +30,8 @@ def affichage_graphique(df_echiquier):
     Je ne fais que print, je ne renvoie pas de valeur. Donc faite affichage_graphique(df_echiquier).
     """
 
-    
+    os.system('clear')  #nettoie l'écran précédent
+
     l0 = ["   ", " a "," b "," c "," d "," e "," f "," g "," h "]
     l1 = [" 1 "]
     l2 = [" 2 "]
@@ -42,14 +44,14 @@ def affichage_graphique(df_echiquier):
     for c in range(8):
         #on va passer parles iloc de notre data frame pour ne pas galérer avec des querry. 
         #on prend les valeurs de la bonne igne, et la n°2 est bien celle de la colonne des cases, et on applique la fonction couleur
-        l1.append(couleur(df_echiquier.iloc[ 8 * c + 0].values[2]))
-        l2.append(couleur(df_echiquier.iloc[ 8 * c + 1].values[2]))
-        l3.append(couleur(df_echiquier.iloc[ 8 * c + 2].values[2]))
-        l4.append(couleur(df_echiquier.iloc[ 8 * c + 3].values[2]))
-        l5.append(couleur(df_echiquier.iloc[ 8 * c + 4].values[2]))
-        l6.append(couleur(df_echiquier.iloc[ 8 * c + 5].values[2]))
-        l7.append(couleur(df_echiquier.iloc[ 8 * c + 6].values[2]))
-        l8.append(couleur(df_echiquier.iloc[ 8 * c + 7].values[2]))
+        l1.append(couleur(df_echiquier.iloc[ 8 * 0 + c].values[2]))
+        l2.append(couleur(df_echiquier.iloc[ 8 * 1 + c].values[2]))
+        l3.append(couleur(df_echiquier.iloc[ 8 * 2 + c].values[2]))
+        l4.append(couleur(df_echiquier.iloc[ 8 * 3 + c].values[2]))
+        l5.append(couleur(df_echiquier.iloc[ 8 * 4 + c].values[2]))
+        l6.append(couleur(df_echiquier.iloc[ 8 * 5 + c].values[2]))
+        l7.append(couleur(df_echiquier.iloc[ 8 * 6 + c].values[2]))
+        l8.append(couleur(df_echiquier.iloc[ 8 * 7 + c].values[2]))
 
 
 
@@ -79,6 +81,9 @@ def affichage_graphique(df_echiquier):
 # cases[28] = "noir"
 # cases[35] = "noir"
 # cases[36] = "blanc"
+
+# cases[9] = "noir"
+# cases[10] = "noir"
 
 # dico = { "lig":ligne, "col":colonne, "cases":cases}
 # echiquier = pd.DataFrame(dico)
