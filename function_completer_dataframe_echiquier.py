@@ -33,9 +33,22 @@ def completer_dataframe_echiquier(df_echiquier, coup):
 
 
 
+# ligne = list()
+# colonne = list()
+# for k in range(1, 9):
+#     for j in range(1, 9):
+#         ligne.append(k)
+#         colonne.append(j)
+# cases = ["dispo"]*64
+# cases[27] = "blanc"
+# cases[28] = "noir"
+# cases[35] = "noir"
+# cases[36] = "blanc"
 
+# dico = { "lig":ligne, "col":colonne, "cases":cases}
+# echiquier = pd.DataFrame(dico)
 
-    
-
+# coup = [3, 4, "noir"] #correspond à l'index 19 
+# print(completer_dataframe_echiquier(echiquier, coup).head(30))
 
 
