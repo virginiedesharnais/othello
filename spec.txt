@@ -111,7 +111,11 @@ flag est un booléen
 
 
 QUI fait quoi (Jeudi 9h40) :
- Seb initialisation (script python qui sera celui executé pour joué au jeu)
- Virginie 
+ Seb : initialisation (script python qui sera celui executé pour joué au jeu)
+ Virginie : vérification coup
+ 
+ 
+ (Jeudi 11h 30) ;
+ Seb : fonctions complétés liste coups et le dictionnaire après un coup joué.
 
 
