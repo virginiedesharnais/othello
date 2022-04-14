@@ -37,8 +37,8 @@ def completer_df_coups(df_coups, coup):
         colonne = coup['col'].values
         case = coup['cases'].values
         num = len(df_coups) + 1
-        
-        d.iloc[0] = [ligne[0], colonne[0], case[0], num]
+
+        d.iloc[num] = [ligne[0], colonne[0], case[0], num]
 
     return d
 
