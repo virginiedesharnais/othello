@@ -120,3 +120,4 @@ QUI fait quoi (Jeudi 9h40) :
  Seb : fonctions complétés liste coups et le dictionnaire après un coup joué.
 
 (14h10) : Seb : Fonction Graphique
+(16h20) : Seb : Fin de partie
