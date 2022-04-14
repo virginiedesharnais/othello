@@ -83,8 +83,9 @@ TOUR :
       * vérification coup (valide ou pas)
       * passer le tour (trouver un coup possible)
       * graphique
-      * compléter la liste des coups
-      * compléter le dictionnaire après un coup joué
+      * compléter la dataframe des coups
+      * compléter la dataframe de l'échiquier (Ajouter le coup + Sandwitch)
+      
 
 
 DEBUT : script ou fonction ?

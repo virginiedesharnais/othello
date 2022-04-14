@@ -29,9 +29,9 @@ echiquier = pd.DataFrame(dico)
 # print(echiquier.head(40))
 
 df_coups = pd.DataFrame( columns = echiquier.columns)
-df_coups['numero']=[]
+df_coups['numero']=[]  #on rajoute la colonne numéro
 # print(df_coups)
-
+# print(df_coups.columns)
 
 
 
