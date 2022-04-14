@@ -121,3 +121,13 @@ QUI fait quoi (Jeudi 9h40) :
 
 (14h10) : Seb : Fonction Graphique
 (16h20) : Seb : Fin de partie
+
+
+GROSSO MODO ce qu'il reste à faire :
+  * Décider du fonctionement de chaque tour (boucle dans le script principale ?)
+  * Cohérences des nomenclatures entres fonctions.
+  * Créer le script qui appelle chaque fonction et les utilisent.
+  * Finir les fonctions : vérification coups, sandwitch(vérification et mise en application après avoir joué le coup)
+
+
+
