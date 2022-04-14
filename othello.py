@@ -1,4 +1,6 @@
 import pandas as pd
+import function_tester_sandwich as fts
+
 
 def verifier_coup(df_jeu, lig, col, case) : 
     flag_coup_ok = True
@@ -27,7 +29,9 @@ def verifier_coup(df_jeu, lig, col, case) :
         flag_coup_ok = False
 
     # Teste si la case jouée permet de faire un sandwich
-    
+    if flag_coup_ok != False and fts.tester_sandwich(df_jeu, lig, col, case) == False :
+        print("Il n' y a pas de sandwich pour ce coup")
+        flag_coup_ok = false 
 
     return flag_coup_ok
 
