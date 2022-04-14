@@ -21,6 +21,20 @@ def completer_dataframe_echiquier(df_echiquier, coup):
     """
 
 
+    #coup est donc le forme [n° ligne, n° colonne, couleur]
+    # puisqu'on est assez malin, on va calculer l'index de la dataframe avec iloc plutôt que querry et chercher les index et galérer
+    # l'index de iloc est 8 x (n°ligne - 1) + n°colonne - 1  ; le dernier -1 car iloc part de 0
+
+    d = pd.DataFrame(df_echiquier) #passer par des copies
+    d.iloc[8 * (coup[0] - 1) + coup[1] - 1] = [ coup[0], coup[1], coup[2]] 
+
+    return d
+
+
+
+
+
+
     
 
 
