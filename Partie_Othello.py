@@ -26,6 +26,27 @@ from function_fin_de_partie import fin_de_partie   # calcul le score une fois qu
 from function_changement_couleur import changement_couleur # change "blanc" en "noir" et vice-versa
 
 
+from function_tester_sandwich import (est_sandwich, tester_sandwich, renvoyer_sandwich, est_case_adj_vide, est_case_adj_contraire) #importe :
+        # est_sandwich(df_jeu, lig, col, case, direction) 
+        # tester_sandwich(echiquier,lig,col,case)
+        # renvoyer_sandwich(echiquier,lig,col,case)
+        # tester_sandwich_possible(echiquier, case)
+        # est_case_adj_vide(df_jeu, lig, col)
+        # est_case_adj_contraire(df_jeu, lig, col, case)
+                                         #ce sont plutôt des utilitaires du prochain import
+
+from function_verifier import verifier_coup  
+        # verifier_coup(df_jeu, lig, col, case, cas_passe="") qui prend en argument :
+                # - l'echiquier ; la ligne, la colonne (num de 1 à 8), case comme la couleur et cas_passe qui ne marche que si c'est "passe"
+            # elle renverra :
+            # * elle vérifie si le coup est valide, renvoie True s'il est valide, False sinon
+            # * on peut demander si passer son tour fonctionne, elle print qu'il le faut si c'est le cas et renvoie False de toute façon.
+
+
+
+
+
+
 
 ###On commence avec l'initialisation, validé dans partie_init. Les importations (de Seb) ont aussi été validés.
 passe = False    #flag passe ton tour. 
@@ -64,15 +85,20 @@ while fin_de_jeu == False and len(df_coups) < 60: #au cas où une sécurité
             
             ligne = int(input("Entrer le numéro de la ligne :"))
             colonne = int(input("Entrer le numéro de la colonne (a=1, b=2, c=3, d=4, e=5, f=6, g=7 et h=8) :"))
-            
             #la couleur est déja donnée par "tour"
-            #fonction virginnie
+            
+            test_act = verifier_coup(echiquier, ligne, colonne, tour)
 
-            if ??? == True: #si la fonction de Virginnie est applicable
-                #obtenir la liste coup avec coordonnée ligne colonne couleur
-                completer_dataframe_echiquier(echiquier, [ligne, colonne, tour])
-                #appliquer les sandwitchs; fonction sandwitch; completer dataframe avec les sandwitchs
+            if test_act == True: #si la fonction de Virginnie est applicable
 
+                sand = renvoyer_sandwich(echiquier, ligne, colonne, tour) #renvoie la liste des sandwichs à effectuer, sous la forme des
+                                                                         # index des iloc du dataframe de l'echiquier à changer de couleur dans une liste
+
+                echiquier = completer_dataframe_echiquier(echiquier, [ligne, colonne, tour])  #le pion joué
+
+                for k in sand:
+                    ref = echiquier.iloc[k].values 
+                    echiquier = completer_dataframe_echiquier(echiquier, [ref[0], ref[1], tour])
 
 
                 completer_df_coups(df_coups, [ligne, colonne, tour])
@@ -81,11 +107,13 @@ while fin_de_jeu == False and len(df_coups) < 60: #au cas où une sécurité
 
 
         elif action == 'pass':
+            
+            test_pass = verifier_coup(echiquier, 1, 1, tour, cas_passe='passe')     #fonction virginnie
+       
+            if str(test_pass) == "passe" #pour savoir si c'est un booléent ou un str; car il return "passe"
+                                                  
 
-            #fonction virginnie
-
-            if ??? == True: #qu'on est effectivement obligé de passer le tour
-                print("le tour est passé, c'est à maintenant à l'autre joueur.")
+                #qu'on est effectivement obligé de passer le tour
 
                 passe = True
 
