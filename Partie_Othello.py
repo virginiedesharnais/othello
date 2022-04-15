@@ -53,7 +53,7 @@ df_coups = pd.DataFrame( columns = echiquier.columns)
 df_coups['numero']=[]
 
 ## On démarre
-while fin_de_jeu == False and len(df_coups) < 64: #au cas où une sécurité
+while fin_de_jeu == False and len(df_coups) < 60: #au cas où une sécurité
     print("C'est au tour du joueur {}.".format(tour))   #dit à quel joueur c'est de jouer
     
     action_valide = False
