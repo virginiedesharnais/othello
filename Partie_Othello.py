@@ -70,13 +70,14 @@ while fin_de_jeu == False and len(df_coups) < 60: #au cas où une sécurité
 
             if ??? == True: #si la fonction de Virginnie est applicable
                 #obtenir la liste coup avec coordonnée ligne colonne couleur
-                completer_dataframe_echiquier(echiquier, coup)
+                completer_dataframe_echiquier(echiquier, [ligne, colonne, tour])
+                #appliquer les sandwitchs; fonction sandwitch; completer dataframe avec les sandwitchs
 
-                completer_df_coups(df_coups, coup)  #attention au format des coups
+
+
+                completer_df_coups(df_coups, [ligne, colonne, tour])
 
                 action_valide = True
-            else: #si le programme de virginnie n'affiche pas que la coordonnée est invalide
-                print('coordonnées invalide')
 
 
         elif action == 'pass':
@@ -90,8 +91,7 @@ while fin_de_jeu == False and len(df_coups) < 60: #au cas où une sécurité
 
                 action_valide = True
 
-            else: #la fonction de virginnie a trouvé une possibilité de jouer
-                #afficher la possibilité de jouer
+               
 
         else: # ni play ni pass
             print("Veuillez saisir une action valide")

@@ -11,7 +11,7 @@ def completer_df_coups(df_coups, coup):
 
     et qui completera par le dernier coup joué grâce aux arguments :
 
-    * coup : dataframe d'une seule ligne, étant la ligne du dernier coup joué. Il contient donc la ligne, la colonne, et la couleur.
+    * coup : liste de troius éléments dans cet ordre:  la ligne, la colonne, et la couleur.
 
     Il nous suffira donc d'ajouter cette ligne à notre DataFrame et de compléter le numéro.
 
@@ -22,11 +22,10 @@ def completer_df_coups(df_coups, coup):
 
     d = pd.DataFrame(df_coups)
     ### Je vais passer par des array afin de pouvoir prélever les valeurs, car les colonnes de coup sont des séries d'un 
-       # d'un seul élément
-    infos = coup.iloc[0].values   
-    ligne = infos[0]
-    colonne = infos[1]
-    case = infos[2]
+       # d'un seul élément   
+    ligne = coup[0]
+    colonne = coup[1]
+    case = coup[2]
     num = len(df_coups) 
 
     d.loc[num + 1] = [ligne, colonne, case, num + 1]

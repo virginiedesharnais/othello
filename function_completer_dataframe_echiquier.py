@@ -11,7 +11,7 @@ def completer_dataframe_echiquier(df_echiquier, coup):
 
     D'où on on transforme le pion, quelquesoit sa position ou son type de case dans cette fonction.
 
-    On entre en paramètre : coup, qui est une MODIFIABLE liste MODIFIABLE comprenant la ligne, colonne et la couleur.
+    On entre en paramètre : coup, qui est une liste comprenant la ligne, colonne et la couleur dans cet ordre.
     A cette ligne et colonne on transforme la case en la couleur annoncée.
     
     Ceci est bel et bien une fonction. On entre en argumant la dataframe et le coup et on return une dataframe.

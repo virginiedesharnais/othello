@@ -4,8 +4,20 @@ import Partie_init as init
 
 
 def verifier_coup(df_jeu, lig, col, case, cas_passe="") : 
-    flag_coup_ok = True
     
+    
+    # Teste le cas "Passe ton tour"
+    if cas_passe == "passe": #on n'a besoin de vérifier que si le joueur veut passer son tour, les coordonnées entrées doivent être invalides
+        
+        flag_coup_ok = False
+        # On vérifie qu'il n'y a pas de sandwich possible
+        if fts.tester_sandwich_possible(df_jeu,case) == True:
+            print("Passe ton tour - Pas de sandwich possible")
+        
+            
+    else:
+        flag_coup_ok = True
+
     # Teste si les coordonnées en ligne et colonne sont sur l'échiquier
     if lig >9 or lig <1 :
         print("Erreur Numéro de ligne - Coup joué hors de l'échiquier")
@@ -27,12 +39,7 @@ def verifier_coup(df_jeu, lig, col, case, cas_passe="") :
         print("case non voisine d'une case jouée")
         flag_coup_ok = False
     
-    # Teste le cas "Passe ton tour"
-    if flag_coup_ok == True and cas_passe == "passe":
-        # On vérifie qu'il n'y a pas de sandwich possible
-        if fts.tester_sandwich_possible(df_jeu,case) == True:
-            print("Passe ton tour - Pas de sandwich possible")
-            flag_coup_ok = False
+    
 
     # Teste si la case jouée permet de faire un sandwich
     if flag_coup_ok != False and cas_passe != "passe" and fts.tester_sandwich(df_jeu, lig, col, case) == False :
