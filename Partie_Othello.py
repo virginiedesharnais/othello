@@ -85,8 +85,12 @@ while fin_de_jeu == False and len(df_coups) < 60: #au cas où une sécurité
         action = str(input("'play' pour jouer une coordonnée.\n'pass' pour demander à passer ton tour :\n"))
         if action == 'play':
             
-            ligne = int(input("Entrer le numéro de la ligne :"))
-            colonne = int(input("Entrer le numéro de la colonne (a=1, b=2, c=3, d=4, e=5, f=6, g=7 et h=8) :"))
+            ligne = int(input("Entrer le numéro de la ligne : "))
+            c1 = input("Entrer le numéro de la colonne (a=1, b=2, c=3, d=4, e=5, f=6, g=7 et h=8) : ")
+            if str(c1) in ['a','b','c','d','e','f','g','h']:
+                c1 = input("J'ai dit le nombre :(a=1, b=2, c=3, d=4, e=5, f=6, g=7 et h=8) : ")
+            colonne = int(c1)
+
             #la couleur est déja donnée par "tour"
             
             test_act = verifier_coup(echiquier, ligne, colonne, tour)
