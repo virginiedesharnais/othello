@@ -25,6 +25,7 @@ def est_sandwich(df_jeu, lig, col, case, direction) :
 def tester_sandwich(echiquier,lig,col,case) :
     for cle, valeur in dic_dir.items() :
         list_res = est_sandwich(echiquier,lig,col,case,cle)
+        print("**** ",len(list_res))
         if len(list_res) != 0 :
             return True
             break
@@ -47,7 +48,7 @@ def tester_sandwich_possible(echiquier, case):
         if est_case_adj_contraire(echiquier,s[0],s[1],case) == True:
             if tester_sandwich(echiquier,s[0], s[1],case) == True:
                 print(s[0], s[1],"=> sandwich possible")
-                flag_sand == True
+                flag_sand = True
     return flag_sand
 
 def est_case_adj_vide(df_jeu, lig, col):
@@ -66,4 +67,4 @@ def est_case_adj_contraire(df_jeu, lig, col, case):
     else :
         return False
 
-#print(renvoyer_sandwich(p_i.echiquier,5,2,"blanc"))
+# print(renvoyer_sandwich(p_i.echiquier,5,2,"blanc"))
