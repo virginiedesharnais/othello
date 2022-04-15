@@ -1,8 +1,11 @@
-import pandas
+import pandas as pd
+import Partie_init as p_i
 
 dic_dir = {"DHG":9, "DHD":7, "DBG":-7, "DBD":-9, "H":8, "B":-8, "D":-1, "G":1}
 
 def est_sandwich(df_jeu, lig, col, case, direction) :
+    l_sand_temp = list()
+    l_sand = list()
     i =1
     flag_sand = False
     flag_autre_case = False
@@ -11,19 +14,29 @@ def est_sandwich(df_jeu, lig, col, case, direction) :
     while (pos_case - pas * i > 0 and pos_case - pas * i<63 and (pos_case - pas * i)%8 != 0 and (pos_case - pas * i)%8 != 7) and flag_sand == False:
         if df_jeu.iloc[ pos_case - pas * i].values[2] != case and df_jeu.iloc[ pos_case - pas * i].values[2] != "dispo" :
             flag_autre_case = True
+            l_sand_temp.append(pos_case - pas * i)
         if flag_autre_case == True and df_jeu.iloc[ pos_case - pas * i].values[2] == case :
             flag_sand = True
+            l_sand=l_sand_temp.copy()
         i = i + 1
     
-    return flag_sand
+    return l_sand
 
 def tester_sandwich(echiquier,lig,col,case) :
     for cle, valeur in dic_dir.items() :
-        res = est_sandwich(echiquier,lig,col,case,cle)
-        if res == True :
+        list_res = est_sandwich(echiquier,lig,col,case,cle)
+        if len(list_res) != 0 :
             return True
             break
     return False
+
+def renvoyer_sandwich(echiquier,lig,col,case) :
+    list_sand_fin = list()
+    for cle, valeur in dic_dir.items() :
+        list_res = est_sandwich(echiquier,lig,col,case,cle)
+        if len(list_res) != 0 :
+            list_sand_fin = list_sand_fin + list_res
+    return list_sand_fin
 
 def tester_sandwich_possible(echiquier, case):
     flag_sand = False
@@ -52,3 +65,5 @@ def est_case_adj_contraire(df_jeu, lig, col, case):
         return True
     else :
         return False
+
+#print(renvoyer_sandwich(p_i.echiquier,5,2,"blanc"))
