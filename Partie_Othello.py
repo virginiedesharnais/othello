@@ -86,7 +86,7 @@ while fin_de_jeu == False and len(df_coups) < 64: #au cas où une sécurité
             if ??? == True: #qu'on est effectivement obligé de passer le tour
                 print("le tour est passé, c'est à maintenant à l'autre joueur.")
 
-                pass = True
+                passe = True
 
                 action_valide = True
 
@@ -99,13 +99,13 @@ while fin_de_jeu == False and len(df_coups) < 64: #au cas où une sécurité
     affichage_graphique(echiquier)  #on affiche l'echiquier après le coup ou le non coup.
     tour = changement_couleur(tour)
 
-    if pass_une_fois == True and passe == True: #si le joueur vient de passer son tour et le précédent aussi
+    if passe_une_fois == True and passe == True: #si le joueur vient de passer son tour et le précédent aussi
         fin_de_jeu = True  
     elif passe == True:  #le joueur vient de passer son tour, mais le tour avant a été joué
-        pass_une_fois = True
+        passe_une_fois = True
     else: # le tour vient d'être joué, quoiqu'il se soit passé le tour précédent
-        pass = False
-        pass_une_fois = False
+        passe = False
+        passe_une_fois = False
 
 #fin de partie
 fin_de_partie(echiquier, df_coups)    
