@@ -73,6 +73,8 @@ echiquier = pd.DataFrame(dico)
 df_coups = pd.DataFrame( columns = echiquier.columns)
 df_coups['numero']=[]
 
+affichage_graphique(echiquier)
+
 ## On démarre
 while fin_de_jeu == False and len(df_coups) < 60: #au cas où une sécurité
     print("C'est au tour du joueur {}.".format(tour))   #dit à quel joueur c'est de jouer
@@ -110,7 +112,7 @@ while fin_de_jeu == False and len(df_coups) < 60: #au cas où une sécurité
             
             test_pass = verifier_coup(echiquier, 1, 1, tour, cas_passe='passe')     #fonction virginnie
        
-            if str(test_pass) == "passe" #pour savoir si c'est un booléent ou un str; car il return "passe"
+            if str(test_pass) == "passe": #pour savoir si c'est un booléent ou un str; car il return "passe"
                                                   
 
                 #qu'on est effectivement obligé de passer le tour
