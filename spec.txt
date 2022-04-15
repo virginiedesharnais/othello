@@ -132,3 +132,4 @@ GROSSO MODO ce qu'il reste à faire :
 
 
 (Vendredi 9h10) : Seb je commence avec le script finale, comment il va faier appel aux auters fonctions et autres.
+(Vendredi 9h10 ) : Virginie => Dév de "passe ton tour"
