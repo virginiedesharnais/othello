@@ -52,7 +52,7 @@ def tester_sandwich_possible(echiquier, case):
     return flag_sand
 
 def est_case_adj_vide(df_jeu, lig, col):
-    req = '(lig == ' + str(lig) + ' and col == ' + str(col - 1) + ' and cases != "dispo") or (lig == ' + str(lig) + ' and col == ' + str(col + 1) + ' and cases != "dispo") or (lig == ' + str(lig - 1) + ' and col == ' + str(col) + ' and cases != "dispo") or (lig == ' + str(lig + 1) + ' and col == ' + str(col) + ' and cases != "dispo")'
+    req = 'cases != "dispo" and ((lig == ' + str(lig -1) + ' and col == ' + str(col - 1) + ') or (lig == ' + str(lig-1) + ' and col == ' + str(col +1) + ') or (lig == ' + str(lig+1 ) + ' and col == ' + str(col - 1) + ') or (lig == ' + str(lig+1) + ' and col == ' + str(col + 1) + ') or (lig == ' + str(lig) + ' and col == ' + str(col - 1) + ') or (lig == ' + str(lig) + ' and col == ' + str(col + 1) + ') or (lig == ' + str(lig - 1) + ' and col == ' + str(col) + ') or (lig == ' + str(lig + 1) + ' and col == ' + str(col) + '))'
     df_jeu_cases_adj = df_jeu.query(req).iloc[:]["cases"].copy()
     if len(df_jeu_cases_adj) == 0:
         return True
@@ -60,7 +60,7 @@ def est_case_adj_vide(df_jeu, lig, col):
         return False
 
 def est_case_adj_contraire(df_jeu, lig, col, case):
-    req = 'cases != "' + case + '" and cases != "dispo" and ((lig == ' + str(lig) + ' and col == ' + str(col - 1) + ') or (lig == ' + str(lig) + ' and col == ' + str(col + 1) + ') or (lig == ' + str(lig - 1) + ' and col == ' + str(col) + ') or (lig == ' + str(lig + 1) + ' and col == ' + str(col) + '))'
+    req = 'cases != "' + case + '" and cases != "dispo" and ((lig == ' + str(lig -1) + ' and col == ' + str(col - 1) + ') or (lig == ' + str(lig-1) + ' and col == ' + str(col +1) + ') or (lig == ' + str(lig+1 ) + ' and col == ' + str(col - 1) + ') or (lig == ' + str(lig+1) + ' and col == ' + str(col + 1) + ') or (lig == ' + str(lig) + ' and col == ' + str(col - 1) + ') or (lig == ' + str(lig) + ' and col == ' + str(col + 1) + ') or (lig == ' + str(lig - 1) + ' and col == ' + str(col) + ') or (lig == ' + str(lig + 1) + ' and col == ' + str(col) + '))'
     df_jeu_cases_adj = df_jeu.query(req).iloc[:]["cases"].copy()
     if len(df_jeu_cases_adj) != 0:
         return True
